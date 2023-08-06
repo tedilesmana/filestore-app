@@ -1,0 +1,27 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'file_upload.model.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$_FileUploadModel _$$_FileUploadModelFromJson(Map<String, dynamic> json) =>
+    _$_FileUploadModel(
+      pathURL: json['pathURL'] as String?,
+      size: json['size'] as int?,
+      extention: json['extention'] as String?,
+      fileNameWithExt: json['fileNameWithExt'] as String?,
+      directory: json['directory'] as String?,
+      filename: json['filename'] as String?,
+    );
+
+Map<String, dynamic> _$$_FileUploadModelToJson(_$_FileUploadModel instance) =>
+    <String, dynamic>{
+      'pathURL': instance.pathURL,
+      'size': instance.size,
+      'extention': instance.extention,
+      'fileNameWithExt': instance.fileNameWithExt,
+      'directory': instance.directory,
+      'filename': instance.filename,
+    };

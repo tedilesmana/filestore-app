@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "148056354933",
+    "project_id": "hobbies-e3fbe",
+    "storage_bucket": "hobbies-e3fbe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148056354933:android:4b6dd18ef2a297ed26483c",
+        "android_client_info": {
+          "package_name": "com.erhacorpdotcom.hobbies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "148056354933-14vvqejbudqvfk9vp81ouk40lp8qa1vm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.erhacorpdotcom.hobbies",
+            "certificate_hash": "275fc50753e0a98c6dae5079a2f5c4e872296f72"
+          }
+        },
+        {
+          "client_id": "148056354933-15ckph442jpr9593cnh06fd95di6420f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.erhacorpdotcom.hobbies",
+            "certificate_hash": "5732637386c75587cc0f4846e9bb279c7f40ec6e"
+          }
+        },
+        {
+          "client_id": "148056354933-g16sjbdvacn9ofafu38udetluecsnlqc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIu8eBc330q2jEVa34-frlvgovR3vOCwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "148056354933-g16sjbdvacn9ofafu38udetluecsnlqc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "148056354933-rrd2vm2if7c5a5b5p99035qp46i1eiuq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.erhacorpdotcom.hobbies"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
