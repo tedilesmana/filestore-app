@@ -1,8 +1,6 @@
 import UIKit
 import Flutter
-import FirebaseMessaging
 import GoogleMobileAds
-import Firebase
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
@@ -35,7 +33,6 @@ import Firebase
     
     
     application.registerForRemoteNotifications()
-    FirebaseApp.configure()
     AppDelegate.registerPlugins(with: self)
     GADMobileAds.sharedInstance().start(completionHandler: nil)
 
@@ -43,8 +40,6 @@ import Firebase
   }
     
   override func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-
-       Messaging.messaging().apnsToken = deviceToken
        super.application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
   }
 }

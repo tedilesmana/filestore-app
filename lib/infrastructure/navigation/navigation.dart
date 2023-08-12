@@ -59,5 +59,20 @@ class Nav {
       page: () => const DetailImageScreen(),
       binding: DetailImageControllerBinding(),
     ),
+    GetPage(
+      name: Routes.LOGIN,
+      page: () => const LoginScreen(),
+      binding: LoginControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.REGISTER,
+      page: () => const RegisterScreen(),
+      binding: RegisterControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.STATISTICS,
+      page: () => const StatisticsScreen(),
+      binding: StatisticsControllerBinding(),
+    ),
   ];
 }

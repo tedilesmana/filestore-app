@@ -30,4 +30,9 @@ class ImageStoreRepository {
     var result = await api.add(data);
     return FilterRepository().foldResponse(result);
   }
+
+  Future<GlobalResponse> getTotalByCategoryRepository() async {
+    var result = await api.getTotalByCategory();
+    return FilterRepository().foldResponse(result);
+  }
 }

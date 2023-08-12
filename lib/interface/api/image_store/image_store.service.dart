@@ -6,7 +6,8 @@ class ImageStoreService extends GetxService {
 
   Future<dynamic> getAll(int page, String search) async {
     final response = await serviceApi.getService(
-        url: '/image-store', data: <String, dynamic>{"limit": 10, "page": page, "search": search});
+        url: '/image-store',
+        data: <String, dynamic>{"limit": 10, "page": page, "search": search});
     return response;
   }
 
@@ -31,6 +32,12 @@ class ImageStoreService extends GetxService {
   Future<dynamic> edit(data, id) async {
     final response =
         await serviceApi.updateService(url: '/image-store/$id', data: data);
+    return response;
+  }
+
+  Future<dynamic> getTotalByCategory() async {
+    final response = await serviceApi
+        .getService(url: '/image-store/total-bycategory', data: {});
     return response;
   }
 }

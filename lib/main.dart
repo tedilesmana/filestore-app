@@ -118,10 +118,7 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       systemNavigationBarColor: statusColor,
       statusBarColor: statusColor,
-      // Android Only
       statusBarIconBrightness: isDarkMode ? Brightness.light : Brightness.dark,
-
-      //iOS only
       statusBarBrightness: isDarkMode ? Brightness.dark : Brightness.light,
     ));
 
@@ -130,7 +127,7 @@ class MyApp extends StatelessWidget {
         textDirection: TextDirection.ltr,
         child: EnvironmentsBadge(
           child: GetMaterialApp(
-            initialRoute: Routes.SPLASH,
+            initialRoute: Routes.LOGIN,
             debugShowCheckedModeBanner: false,
             getPages: Nav.routes,
             theme: themeLight,

@@ -61,7 +61,6 @@ class PostImageController extends GetxController {
       SnackbarUtil.showInfo(message: "Gagal upload silahkan upload ulang");
       loadingPostImage.value = false;
     } finally {
-      SnackbarUtil.showInfo(message: "Gagal upload silahkan upload ulang");
       loadingPostImage.value = false;
       await EasyLoading.dismiss();
     }
