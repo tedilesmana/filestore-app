@@ -470,6 +470,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "get_storage",
+      "rootUri": "file:///Users/admin/.pub-cache/hosted/pub.dev/get_storage-2.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
       "name": "glob",
       "rootUri": "file:///Users/admin/.pub-cache/hosted/pub.dev/glob-2.1.2",
       "packageUri": "lib/",
@@ -1172,7 +1178,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-08-12T11:09:31.040927Z",
+  "generated": "2023-08-12T23:53:37.800296Z",
   "generator": "pub",
   "generatorVersion": "3.0.6"
 }

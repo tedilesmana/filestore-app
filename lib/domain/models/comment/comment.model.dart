@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:filestore/domain/models/user/user.model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'dart:convert';
 
@@ -16,6 +17,8 @@ class CommentModel with _$CommentModel {
   const factory CommentModel({
     int? image_store_id,
     String? comment,
+    User? user,
+    int? user_id,
     String? code,
     DateTime? updated_at,
     DateTime? created_at,

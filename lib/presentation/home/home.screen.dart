@@ -1,7 +1,9 @@
+import 'package:filestore/core/config/color.dart';
 import 'package:filestore/core/config/size_config.dart';
 import 'package:filestore/core/controller/xcontroller.dart';
+import 'package:filestore/core/data/storage/auth_user.dart';
 import 'package:filestore/core/provider/hive.dart';
-import 'package:filestore/core/widgets/top_title.dart';
+import 'package:filestore/domain/models/user/user.model.dart';
 import 'package:filestore/presentation/list_image/controllers/list_image.controller.dart';
 import 'package:filestore/presentation/screens.dart';
 import 'package:flutter/material.dart';
@@ -71,7 +73,6 @@ class HomeScreen extends GetView<HomeController> {
         spaceHeight10,
         searchTopHeader(),
         spaceHeight20,
-        // ignore: prefer_const_constructors
         ListImageScreen(),
       ],
     );
@@ -134,55 +135,77 @@ class HomeScreen extends GetView<HomeController> {
   }
 
   Widget rowTopHeader(final XController x, final String getLang) {
+    final authUserStorage = AuthUserStorage.getAuthUser();
+    final auth = UserModel.fromJson(authUserStorage);
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 20),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SizedBox(
-            width: Get.width / 1.4,
-            child: TopTitle(isEnglish: getLang == 'en'),
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(
-                SettingsScreen(
-                  themeCallback: () {
-                    themeMode.value = Get.isDarkMode ? 0 : 1;
-                  },
-                  langCallback: () {
-                    langName.value = x.getLangName();
-                    x.setDefaultLocale();
-                  },
-                ),
-              );
-            },
-            child: Container(
-              padding: const EdgeInsets.all(1),
-              decoration: BoxDecoration(
-                color: Get.theme.colorScheme.secondary.withOpacity(1),
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(35),
-                ),
+      child: Container(
+        color: filestore,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Align(
+              alignment: Alignment(0, -0.5),
+              child: CircleAvatar(
+                radius: 50,
+                backgroundImage: AssetImage('assets/images/icons/logo.png'),
               ),
-              child: const Padding(
-                padding: EdgeInsets.all(8),
-                child: Icon(
-                  Icons.menu,
-                  color: Colors.white,
-                  size: 22,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: InkWell(
+                onTap: () {
+                  Get.to(
+                    SettingsScreen(
+                      themeCallback: () {
+                        themeMode.value = Get.isDarkMode ? 0 : 1;
+                      },
+                      langCallback: () {
+                        langName.value = x.getLangName();
+                        x.setDefaultLocale();
+                      },
+                    ),
+                  );
+                },
+                child: Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(1),
+                      decoration: BoxDecoration(
+                        color: Get.theme.colorScheme.secondary.withOpacity(1),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(35),
+                        ),
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsets.all(8),
+                        child: Icon(
+                          Icons.menu,
+                          color: Colors.white,
+                          size: 22,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      auth.user!.name!.capitalizeFirst!,
+                      style: const TextStyle(color: Colors.black),
+                    )
+                  ],
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 
-  final _channel =
-      const MethodChannel('com.erhacorpdotcom.filestore/app_retain');
+  final _channel = const MethodChannel('com.binarasia.filestore/app_retain');
   Future<bool> onBackPress() {
     debugPrint("onBackPress HomeScreen...");
     if (GetPlatform.isAndroid) {

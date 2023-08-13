@@ -21,10 +21,12 @@ ImageStoreModel _$ImageStoreModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ImageStoreModel {
   String? get name => throw _privateConstructorUsedError;
-  String? get category => throw _privateConstructorUsedError;
+  int? get category_id => throw _privateConstructorUsedError;
+  int? get user_id => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get extention => throw _privateConstructorUsedError;
   int? get size => throw _privateConstructorUsedError;
+  User? get user => throw _privateConstructorUsedError;
   String? get directory => throw _privateConstructorUsedError;
   String? get image_url => throw _privateConstructorUsedError;
   String? get filename => throw _privateConstructorUsedError;
@@ -47,10 +49,12 @@ abstract class $ImageStoreModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String? name,
-      String? category,
+      int? category_id,
+      int? user_id,
       String? description,
       String? extention,
       int? size,
+      User? user,
       String? directory,
       String? image_url,
       String? filename,
@@ -58,6 +62,8 @@ abstract class $ImageStoreModelCopyWith<$Res> {
       DateTime? updated_at,
       DateTime? created_at,
       int? id});
+
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -74,10 +80,12 @@ class _$ImageStoreModelCopyWithImpl<$Res, $Val extends ImageStoreModel>
   @override
   $Res call({
     Object? name = freezed,
-    Object? category = freezed,
+    Object? category_id = freezed,
+    Object? user_id = freezed,
     Object? description = freezed,
     Object? extention = freezed,
     Object? size = freezed,
+    Object? user = freezed,
     Object? directory = freezed,
     Object? image_url = freezed,
     Object? filename = freezed,
@@ -91,10 +99,14 @@ class _$ImageStoreModelCopyWithImpl<$Res, $Val extends ImageStoreModel>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      category: freezed == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as String?,
+      category_id: freezed == category_id
+          ? _value.category_id
+          : category_id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      user_id: freezed == user_id
+          ? _value.user_id
+          : user_id // ignore: cast_nullable_to_non_nullable
+              as int?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -107,6 +119,10 @@ class _$ImageStoreModelCopyWithImpl<$Res, $Val extends ImageStoreModel>
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as int?,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
       directory: freezed == directory
           ? _value.directory
           : directory // ignore: cast_nullable_to_non_nullable
@@ -137,6 +153,18 @@ class _$ImageStoreModelCopyWithImpl<$Res, $Val extends ImageStoreModel>
               as int?,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res>? get user {
+    if (_value.user == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_value.user!, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -149,10 +177,12 @@ abstract class _$$_ImageStoreModelCopyWith<$Res>
   @useResult
   $Res call(
       {String? name,
-      String? category,
+      int? category_id,
+      int? user_id,
       String? description,
       String? extention,
       int? size,
+      User? user,
       String? directory,
       String? image_url,
       String? filename,
@@ -160,6 +190,9 @@ abstract class _$$_ImageStoreModelCopyWith<$Res>
       DateTime? updated_at,
       DateTime? created_at,
       int? id});
+
+  @override
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -174,10 +207,12 @@ class __$$_ImageStoreModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = freezed,
-    Object? category = freezed,
+    Object? category_id = freezed,
+    Object? user_id = freezed,
     Object? description = freezed,
     Object? extention = freezed,
     Object? size = freezed,
+    Object? user = freezed,
     Object? directory = freezed,
     Object? image_url = freezed,
     Object? filename = freezed,
@@ -191,10 +226,14 @@ class __$$_ImageStoreModelCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      category: freezed == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as String?,
+      category_id: freezed == category_id
+          ? _value.category_id
+          : category_id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      user_id: freezed == user_id
+          ? _value.user_id
+          : user_id // ignore: cast_nullable_to_non_nullable
+              as int?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -207,6 +246,10 @@ class __$$_ImageStoreModelCopyWithImpl<$Res>
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as int?,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
       directory: freezed == directory
           ? _value.directory
           : directory // ignore: cast_nullable_to_non_nullable
@@ -244,10 +287,12 @@ class __$$_ImageStoreModelCopyWithImpl<$Res>
 class _$_ImageStoreModel implements _ImageStoreModel {
   const _$_ImageStoreModel(
       {this.name,
-      this.category,
+      this.category_id,
+      this.user_id,
       this.description,
       this.extention,
       this.size,
+      this.user,
       this.directory,
       this.image_url,
       this.filename,
@@ -262,13 +307,17 @@ class _$_ImageStoreModel implements _ImageStoreModel {
   @override
   final String? name;
   @override
-  final String? category;
+  final int? category_id;
+  @override
+  final int? user_id;
   @override
   final String? description;
   @override
   final String? extention;
   @override
   final int? size;
+  @override
+  final User? user;
   @override
   final String? directory;
   @override
@@ -286,7 +335,7 @@ class _$_ImageStoreModel implements _ImageStoreModel {
 
   @override
   String toString() {
-    return 'ImageStoreModel(name: $name, category: $category, description: $description, extention: $extention, size: $size, directory: $directory, image_url: $image_url, filename: $filename, code: $code, updated_at: $updated_at, created_at: $created_at, id: $id)';
+    return 'ImageStoreModel(name: $name, category_id: $category_id, user_id: $user_id, description: $description, extention: $extention, size: $size, user: $user, directory: $directory, image_url: $image_url, filename: $filename, code: $code, updated_at: $updated_at, created_at: $created_at, id: $id)';
   }
 
   @override
@@ -295,13 +344,15 @@ class _$_ImageStoreModel implements _ImageStoreModel {
         (other.runtimeType == runtimeType &&
             other is _$_ImageStoreModel &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.category, category) ||
-                other.category == category) &&
+            (identical(other.category_id, category_id) ||
+                other.category_id == category_id) &&
+            (identical(other.user_id, user_id) || other.user_id == user_id) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.extention, extention) ||
                 other.extention == extention) &&
             (identical(other.size, size) || other.size == size) &&
+            (identical(other.user, user) || other.user == user) &&
             (identical(other.directory, directory) ||
                 other.directory == directory) &&
             (identical(other.image_url, image_url) ||
@@ -321,10 +372,12 @@ class _$_ImageStoreModel implements _ImageStoreModel {
   int get hashCode => Object.hash(
       runtimeType,
       name,
-      category,
+      category_id,
+      user_id,
       description,
       extention,
       size,
+      user,
       directory,
       image_url,
       filename,
@@ -350,10 +403,12 @@ class _$_ImageStoreModel implements _ImageStoreModel {
 abstract class _ImageStoreModel implements ImageStoreModel {
   const factory _ImageStoreModel(
       {final String? name,
-      final String? category,
+      final int? category_id,
+      final int? user_id,
       final String? description,
       final String? extention,
       final int? size,
+      final User? user,
       final String? directory,
       final String? image_url,
       final String? filename,
@@ -368,13 +423,17 @@ abstract class _ImageStoreModel implements ImageStoreModel {
   @override
   String? get name;
   @override
-  String? get category;
+  int? get category_id;
+  @override
+  int? get user_id;
   @override
   String? get description;
   @override
   String? get extention;
   @override
   int? get size;
+  @override
+  User? get user;
   @override
   String? get directory;
   @override

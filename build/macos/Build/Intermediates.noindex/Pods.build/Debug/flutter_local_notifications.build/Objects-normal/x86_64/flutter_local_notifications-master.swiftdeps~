@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)"
+options: "5840ed0d4168863f7d8cdac2932084fadf630e16cac0d88717181d17f34d63a9"
+build_start_time: [1691854072, 275059000]
+build_end_time: [1691854072, 332217000]
+inputs:
+  "/Users/admin/.pub-cache/hosted/pub.dev/flutter_local_notifications-13.0.0/macos/Classes/FlutterLocalNotificationsPlugin.swift": !private [1691209854, 444625039]

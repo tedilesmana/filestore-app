@@ -10,6 +10,10 @@ _$_CommentModel _$$_CommentModelFromJson(Map<String, dynamic> json) =>
     _$_CommentModel(
       image_store_id: json['image_store_id'] as int?,
       comment: json['comment'] as String?,
+      user: json['user'] == null
+          ? null
+          : User.fromJson(json['user'] as Map<String, dynamic>),
+      user_id: json['user_id'] as int?,
       code: json['code'] as String?,
       updated_at: json['updated_at'] == null
           ? null
@@ -24,6 +28,8 @@ Map<String, dynamic> _$$_CommentModelToJson(_$_CommentModel instance) =>
     <String, dynamic>{
       'image_store_id': instance.image_store_id,
       'comment': instance.comment,
+      'user': instance.user,
+      'user_id': instance.user_id,
       'code': instance.code,
       'updated_at': instance.updated_at?.toIso8601String(),
       'created_at': instance.created_at?.toIso8601String(),

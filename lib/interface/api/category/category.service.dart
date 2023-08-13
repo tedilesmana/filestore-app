@@ -7,7 +7,7 @@ class CategoryService extends GetxService {
   Future<dynamic> getAll(int page, String search) async {
     final response = await serviceApi.getService(
         url: '/category',
-        data: <String, dynamic>{"limit": 10, "page": page, "search": search});
+        data: <String, dynamic>{"limit": 1000, "page": page, "search": search});
     return response;
   }
 

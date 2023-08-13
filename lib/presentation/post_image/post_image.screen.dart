@@ -7,6 +7,7 @@ import 'package:filestore/core/widgets/text_area.dart';
 import 'package:filestore/core/widgets/text_input.dart';
 import 'package:filestore/core/widgets/upload_image.dart';
 import 'package:filestore/presentation/post_image/controllers/post_image.controller.dart';
+import 'package:filestore/presentation/post_image/sections/category.section.dart';
 import 'package:filestore/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -71,181 +72,255 @@ class PostImageScreen extends StatelessWidget {
         child: SafeArea(
           top: false,
           bottom: false,
-          child: Scaffold(
-            body: Form(
-              key: postImageController.formPostImageKey,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(height: Get.mediaQuery.padding.top),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconButton(
-                          onPressed: () async {
-                            final callback = await onBackPressPost();
-                            if (callback) {
-                              Get.back();
-                            }
-                          },
-                          icon: const Icon(Feather.chevron_left, size: 28),
-                        ),
-                        Text(
-                          "Post Image",
-                          style: textBold.copyWith(fontSize: 20),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            postImageController.postImage("");
-                          },
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 5),
-                            decoration: BoxDecoration(
-                              color: Get.theme.colorScheme.secondary,
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: const Text("Post",
-                                style: TextStyle(color: Colors.white)),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Flexible(
-                    child: SingleChildScrollView(
-                      physics: const BouncingScrollPhysics(),
+          child: Obx(
+            () => Scaffold(
+              body: postImageController.selectCategory.value
+                  ? const CategorySection()
+                  : Form(
+                      key: postImageController.formPostImageKey,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          ShadowContainer(
-                            child: Container(
-                              padding: const EdgeInsets.all(5),
-                              child: UploadImage(
-                                title: MyTheme.image1,
-                                width: Get.width / 1.1,
-                                height: Get.height / 3.7,
-                              ),
+                          SizedBox(height: Get.mediaQuery.padding.top),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 8),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                IconButton(
+                                  onPressed: () async {
+                                    final callback = await onBackPressPost();
+                                    if (callback) {
+                                      Get.back();
+                                    }
+                                  },
+                                  icon: const Icon(Feather.chevron_left,
+                                      size: 28),
+                                ),
+                                Text(
+                                  "Post Image",
+                                  style: textBold.copyWith(fontSize: 20),
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    postImageController.postImage("");
+                                  },
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 5),
+                                    decoration: BoxDecoration(
+                                      color: Get.theme.colorScheme.secondary,
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: const Text("Post",
+                                        style: TextStyle(color: Colors.white)),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          spaceHeight20,
-                          const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20),
-                            child: Text(
-                              'Nama : ',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Flexible(
-                                child: Container(
-                                  margin: const EdgeInsets.symmetric(
-                                      horizontal: 10, vertical: 0),
-                                  padding: const EdgeInsets.only(
-                                      left: 8, right: 8, top: 0, bottom: 5),
-                                  decoration: BoxDecoration(
-                                    color: Get.theme.colorScheme.background,
-                                    borderRadius: const BorderRadius.all(
-                                      Radius.circular(5),
+                          Flexible(
+                            child: SingleChildScrollView(
+                              physics: const BouncingScrollPhysics(),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  ShadowContainer(
+                                    child: Container(
+                                      padding: const EdgeInsets.all(5),
+                                      child: UploadImage(
+                                        title: MyTheme.image1,
+                                        width: Get.width / 1.1,
+                                        height: Get.height / 3.7,
+                                      ),
                                     ),
                                   ),
-                                  child: Center(
+                                  spaceHeight20,
+                                  const Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 20),
+                                    child: Text(
+                                      'Kategori : ',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 20),
                                     child: TextInput(
-                                      key: const Key("name"),
-                                      label: "Nama Belakang",
+                                      key: Key(postImageController
+                                          .category_name.value),
+                                      initialValue: postImageController
+                                          .category_name.value,
+                                      onTap: () {
+                                        postImageController
+                                            .selectCategory.value = true;
+                                      },
+                                      suffixIcon: const Icon(
+                                          Feather.chevron_right,
+                                          size: 28),
+                                      readOnly: true,
+                                      label: "Kategori",
                                       isLabel: false,
-                                      placeholder: "Masukkan Nama Belakang",
-                                      controller:
-                                          postImageController.nameController,
+                                      placeholder: "Pilih Kategori",
+                                      controller: postImageController
+                                          .categoryController,
                                       onSaved: (value) {
-                                        postImageController.name = value!;
+                                        postImageController.category = value!;
                                       },
                                       keyboardType: TextInputType.text,
                                       validator: (value) {
                                         return utilHelper.validateRequire(
-                                            value!, "Nama ");
+                                            value!, "Kategori ");
                                       },
                                       obscureText: false,
                                     ),
                                   ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          spaceHeight20,
-                          const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20),
-                            child: Text(
-                              'Deskripsi : ',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  const Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 20),
+                                    child: Text(
+                                      'Nama : ',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Flexible(
+                                        child: Container(
+                                          margin: const EdgeInsets.symmetric(
+                                              horizontal: 10, vertical: 0),
+                                          padding: const EdgeInsets.only(
+                                              left: 8,
+                                              right: 8,
+                                              top: 0,
+                                              bottom: 5),
+                                          decoration: BoxDecoration(
+                                            color: Get
+                                                .theme.colorScheme.background,
+                                            borderRadius:
+                                                const BorderRadius.all(
+                                              Radius.circular(5),
+                                            ),
+                                          ),
+                                          child: Center(
+                                            child: TextInput(
+                                              key: const Key("name"),
+                                              label: "Nama Belakang",
+                                              isLabel: false,
+                                              placeholder:
+                                                  "Masukkan Nama Belakang",
+                                              controller: postImageController
+                                                  .nameController,
+                                              onSaved: (value) {
+                                                postImageController.name =
+                                                    value!;
+                                              },
+                                              keyboardType: TextInputType.text,
+                                              validator: (value) {
+                                                return utilHelper
+                                                    .validateRequire(
+                                                        value!, "Nama ");
+                                              },
+                                              obscureText: false,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  spaceHeight20,
+                                  const Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 20),
+                                    child: Text(
+                                      'Deskripsi : ',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Flexible(
+                                        child: Container(
+                                          margin: const EdgeInsets.symmetric(
+                                              horizontal: 10, vertical: 0),
+                                          padding: const EdgeInsets.only(
+                                              left: 8,
+                                              right: 8,
+                                              top: 0,
+                                              bottom: 5),
+                                          decoration: BoxDecoration(
+                                            color: Get
+                                                .theme.colorScheme.background,
+                                            borderRadius:
+                                                const BorderRadius.all(
+                                              Radius.circular(5),
+                                            ),
+                                          ),
+                                          child: Center(
+                                            child: TextArea(
+                                              key: const Key("description"),
+                                              label: "Deskripsi",
+                                              isLabel: false,
+                                              placeholder:
+                                                  "Masukkan Deskripsi Gambar",
+                                              controller: postImageController
+                                                  .descriptionController,
+                                              onSaved: (value) {
+                                                postImageController
+                                                    .description = value!;
+                                              },
+                                              keyboardType:
+                                                  TextInputType.multiline,
+                                              validator: (value) {
+                                                return utilHelper
+                                                    .validateRequire(
+                                                        value!, "Deskripsi ");
+                                              },
+                                              obscureText: false,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Flexible(
-                                child: Container(
-                                  margin: const EdgeInsets.symmetric(
-                                      horizontal: 10, vertical: 0),
-                                  padding: const EdgeInsets.only(
-                                      left: 8, right: 8, top: 0, bottom: 5),
-                                  decoration: BoxDecoration(
-                                    color: Get.theme.colorScheme.background,
-                                    borderRadius: const BorderRadius.all(
-                                      Radius.circular(5),
-                                    ),
-                                  ),
-                                  child: Center(
-                                    child: TextArea(
-                                      key: const Key("description"),
-                                      label: "Deskripsi",
-                                      isLabel: false,
-                                      placeholder: "Masukkan Deskripsi Gambar",
-                                      controller: postImageController
-                                          .descriptionController,
-                                      onSaved: (value) {
-                                        postImageController.description =
-                                            value!;
-                                      },
-                                      keyboardType: TextInputType.multiline,
-                                      validator: (value) {
-                                        return utilHelper.validateRequire(
-                                            value!, "Deskripsi ");
-                                      },
-                                      obscureText: false,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
                           ),
                         ],
                       ),
                     ),
-                  ),
-                ],
-              ),
             ),
           ),
         ),

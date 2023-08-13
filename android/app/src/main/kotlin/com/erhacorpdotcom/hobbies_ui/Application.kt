@@ -1,4 +1,4 @@
-package com.erhacorpdotcom.filestore
+package com.binarasia.filestore
 
 import io.flutter.app.FlutterApplication
 

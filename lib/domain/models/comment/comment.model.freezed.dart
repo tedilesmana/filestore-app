@@ -22,6 +22,8 @@ CommentModel _$CommentModelFromJson(Map<String, dynamic> json) {
 mixin _$CommentModel {
   int? get image_store_id => throw _privateConstructorUsedError;
   String? get comment => throw _privateConstructorUsedError;
+  User? get user => throw _privateConstructorUsedError;
+  int? get user_id => throw _privateConstructorUsedError;
   String? get code => throw _privateConstructorUsedError;
   DateTime? get updated_at => throw _privateConstructorUsedError;
   DateTime? get created_at => throw _privateConstructorUsedError;
@@ -42,10 +44,14 @@ abstract class $CommentModelCopyWith<$Res> {
   $Res call(
       {int? image_store_id,
       String? comment,
+      User? user,
+      int? user_id,
       String? code,
       DateTime? updated_at,
       DateTime? created_at,
       int? id});
+
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -63,6 +69,8 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
   $Res call({
     Object? image_store_id = freezed,
     Object? comment = freezed,
+    Object? user = freezed,
+    Object? user_id = freezed,
     Object? code = freezed,
     Object? updated_at = freezed,
     Object? created_at = freezed,
@@ -77,6 +85,14 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
               as String?,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
+      user_id: freezed == user_id
+          ? _value.user_id
+          : user_id // ignore: cast_nullable_to_non_nullable
+              as int?,
       code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -95,6 +111,18 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
               as int?,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res>? get user {
+    if (_value.user == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_value.user!, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -108,10 +136,15 @@ abstract class _$$_CommentModelCopyWith<$Res>
   $Res call(
       {int? image_store_id,
       String? comment,
+      User? user,
+      int? user_id,
       String? code,
       DateTime? updated_at,
       DateTime? created_at,
       int? id});
+
+  @override
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -127,6 +160,8 @@ class __$$_CommentModelCopyWithImpl<$Res>
   $Res call({
     Object? image_store_id = freezed,
     Object? comment = freezed,
+    Object? user = freezed,
+    Object? user_id = freezed,
     Object? code = freezed,
     Object? updated_at = freezed,
     Object? created_at = freezed,
@@ -141,6 +176,14 @@ class __$$_CommentModelCopyWithImpl<$Res>
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
               as String?,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
+      user_id: freezed == user_id
+          ? _value.user_id
+          : user_id // ignore: cast_nullable_to_non_nullable
+              as int?,
       code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -167,6 +210,8 @@ class _$_CommentModel implements _CommentModel {
   const _$_CommentModel(
       {this.image_store_id,
       this.comment,
+      this.user,
+      this.user_id,
       this.code,
       this.updated_at,
       this.created_at,
@@ -180,6 +225,10 @@ class _$_CommentModel implements _CommentModel {
   @override
   final String? comment;
   @override
+  final User? user;
+  @override
+  final int? user_id;
+  @override
   final String? code;
   @override
   final DateTime? updated_at;
@@ -190,7 +239,7 @@ class _$_CommentModel implements _CommentModel {
 
   @override
   String toString() {
-    return 'CommentModel(image_store_id: $image_store_id, comment: $comment, code: $code, updated_at: $updated_at, created_at: $created_at, id: $id)';
+    return 'CommentModel(image_store_id: $image_store_id, comment: $comment, user: $user, user_id: $user_id, code: $code, updated_at: $updated_at, created_at: $created_at, id: $id)';
   }
 
   @override
@@ -201,6 +250,8 @@ class _$_CommentModel implements _CommentModel {
             (identical(other.image_store_id, image_store_id) ||
                 other.image_store_id == image_store_id) &&
             (identical(other.comment, comment) || other.comment == comment) &&
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.user_id, user_id) || other.user_id == user_id) &&
             (identical(other.code, code) || other.code == code) &&
             (identical(other.updated_at, updated_at) ||
                 other.updated_at == updated_at) &&
@@ -211,8 +262,8 @@ class _$_CommentModel implements _CommentModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, image_store_id, comment, code, updated_at, created_at, id);
+  int get hashCode => Object.hash(runtimeType, image_store_id, comment, user,
+      user_id, code, updated_at, created_at, id);
 
   @JsonKey(ignore: true)
   @override
@@ -232,6 +283,8 @@ abstract class _CommentModel implements CommentModel {
   const factory _CommentModel(
       {final int? image_store_id,
       final String? comment,
+      final User? user,
+      final int? user_id,
       final String? code,
       final DateTime? updated_at,
       final DateTime? created_at,
@@ -244,6 +297,10 @@ abstract class _CommentModel implements CommentModel {
   int? get image_store_id;
   @override
   String? get comment;
+  @override
+  User? get user;
+  @override
+  int? get user_id;
   @override
   String? get code;
   @override

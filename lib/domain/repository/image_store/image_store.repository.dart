@@ -6,8 +6,8 @@ class ImageStoreRepository {
   final ImageStoreService api = ImageStoreService();
   late GlobalResponse response;
 
-  Future<GlobalResponse> getAllRepository(int page, String search) async {
-    var result = await api.getAll(page, search);
+  Future<GlobalResponse> getAllRepository(int page, String search, String category_id) async {
+    var result = await api.getAll(page, search, category_id);
     return FilterRepository().foldResponse(result);
   }
 

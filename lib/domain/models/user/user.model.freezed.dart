@@ -402,11 +402,11 @@ mixin _$User {
   String? get name => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   String? get phone_number => throw _privateConstructorUsedError;
-  dynamic? get otp => throw _privateConstructorUsedError;
-  dynamic? get email_verified_at => throw _privateConstructorUsedError;
+  dynamic get otp => throw _privateConstructorUsedError;
+  dynamic get email_verified_at => throw _privateConstructorUsedError;
   DateTime? get created_at => throw _privateConstructorUsedError;
   DateTime? get updated_at => throw _privateConstructorUsedError;
-  dynamic? get deleted_at => throw _privateConstructorUsedError;
+  dynamic get deleted_at => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -423,11 +423,11 @@ abstract class $UserCopyWith<$Res> {
       String? name,
       String? email,
       String? phone_number,
-      dynamic? otp,
-      dynamic? email_verified_at,
+      dynamic otp,
+      dynamic email_verified_at,
       DateTime? created_at,
       DateTime? updated_at,
-      dynamic? deleted_at});
+      dynamic deleted_at});
 }
 
 /// @nodoc
@@ -473,11 +473,11 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
       otp: freezed == otp
           ? _value.otp
           : otp // ignore: cast_nullable_to_non_nullable
-              as dynamic?,
+              as dynamic,
       email_verified_at: freezed == email_verified_at
           ? _value.email_verified_at
           : email_verified_at // ignore: cast_nullable_to_non_nullable
-              as dynamic?,
+              as dynamic,
       created_at: freezed == created_at
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
@@ -489,7 +489,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
       deleted_at: freezed == deleted_at
           ? _value.deleted_at
           : deleted_at // ignore: cast_nullable_to_non_nullable
-              as dynamic?,
+              as dynamic,
     ) as $Val);
   }
 }
@@ -505,11 +505,11 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       String? name,
       String? email,
       String? phone_number,
-      dynamic? otp,
-      dynamic? email_verified_at,
+      dynamic otp,
+      dynamic email_verified_at,
       DateTime? created_at,
       DateTime? updated_at,
-      dynamic? deleted_at});
+      dynamic deleted_at});
 }
 
 /// @nodoc
@@ -551,11 +551,11 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
       otp: freezed == otp
           ? _value.otp
           : otp // ignore: cast_nullable_to_non_nullable
-              as dynamic?,
+              as dynamic,
       email_verified_at: freezed == email_verified_at
           ? _value.email_verified_at
           : email_verified_at // ignore: cast_nullable_to_non_nullable
-              as dynamic?,
+              as dynamic,
       created_at: freezed == created_at
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
@@ -567,7 +567,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
       deleted_at: freezed == deleted_at
           ? _value.deleted_at
           : deleted_at // ignore: cast_nullable_to_non_nullable
-              as dynamic?,
+              as dynamic,
     ));
   }
 }
@@ -580,11 +580,11 @@ class _$_User implements _User {
       this.name,
       this.email,
       this.phone_number,
-      this.otp,
-      this.email_verified_at,
+      required this.otp,
+      required this.email_verified_at,
       this.created_at,
       this.updated_at,
-      this.deleted_at});
+      required this.deleted_at});
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
@@ -597,15 +597,15 @@ class _$_User implements _User {
   @override
   final String? phone_number;
   @override
-  final dynamic? otp;
+  final dynamic otp;
   @override
-  final dynamic? email_verified_at;
+  final dynamic email_verified_at;
   @override
   final DateTime? created_at;
   @override
   final DateTime? updated_at;
   @override
-  final dynamic? deleted_at;
+  final dynamic deleted_at;
 
   @override
   String toString() {
@@ -667,11 +667,11 @@ abstract class _User implements User {
       final String? name,
       final String? email,
       final String? phone_number,
-      final dynamic? otp,
-      final dynamic? email_verified_at,
+      required final dynamic otp,
+      required final dynamic email_verified_at,
       final DateTime? created_at,
       final DateTime? updated_at,
-      final dynamic? deleted_at}) = _$_User;
+      required final dynamic deleted_at}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
@@ -684,15 +684,15 @@ abstract class _User implements User {
   @override
   String? get phone_number;
   @override
-  dynamic? get otp;
+  dynamic get otp;
   @override
-  dynamic? get email_verified_at;
+  dynamic get email_verified_at;
   @override
   DateTime? get created_at;
   @override
   DateTime? get updated_at;
   @override
-  dynamic? get deleted_at;
+  dynamic get deleted_at;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;

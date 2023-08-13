@@ -11,6 +11,7 @@ _$_CategoryModel _$$_CategoryModelFromJson(Map<String, dynamic> json) =>
       id: json['id'] as int?,
       code: json['code'] as String?,
       name: json['name'] as String?,
+      image_url: json['image_url'] as String?,
       created_at: json['created_at'] == null
           ? null
           : DateTime.parse(json['created_at'] as String),
@@ -25,6 +26,7 @@ Map<String, dynamic> _$$_CategoryModelToJson(_$_CategoryModel instance) =>
       'id': instance.id,
       'code': instance.code,
       'name': instance.name,
+      'image_url': instance.image_url,
       'created_at': instance.created_at?.toIso8601String(),
       'updated_at': instance.updated_at?.toIso8601String(),
       'deleted_at': instance.deleted_at,

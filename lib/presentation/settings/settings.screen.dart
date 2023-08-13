@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:filestore/core/config/size_config.dart';
 import 'package:filestore/core/controller/xcontroller.dart';
-import 'package:filestore/core/models/user_model.dart';
 import 'package:filestore/core/widgets/photo_oval.dart';
 import 'package:filestore/core/widgets/shadow_container.dart';
 import 'package:filestore/core/widgets/toggle_lang.dart';
@@ -19,7 +18,6 @@ class SettingsScreen extends GetView<SettingsController> {
   final VoidCallback themeCallback;
   final VoidCallback langCallback;
 
-  static final defUser = UserModel().obs;
 
   SettingsScreen(
       {Key? key, required this.themeCallback, required this.langCallback})

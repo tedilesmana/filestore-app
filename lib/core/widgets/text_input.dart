@@ -35,6 +35,7 @@ class TextInput extends StatelessWidget {
 
   final String? initialValue;
   final bool? readOnly;
+  final Widget? suffixIcon;
 
   /// [label] **variable** untuk menamung *nama* `input`
   /// [placeholder] **variable** untuk menamung *petunjuk* `input`
@@ -79,6 +80,7 @@ class TextInput extends StatelessWidget {
     required this.validator,
     required this.obscureText,
     required this.keyboardType,
+    this.suffixIcon,
     this.prefixIcon,
   }) : super(key: key);
 
@@ -136,6 +138,7 @@ class TextInput extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.only(top: 8),
+              padding: const EdgeInsets.only(right: 5, left: 15),
               child: TextFormField(
                 readOnly: readOnly!,
                 textInputAction: TextInputAction.done,
@@ -147,6 +150,7 @@ class TextInput extends StatelessWidget {
                 },
                 decoration: InputDecoration(
                   prefixIcon: prefixIcon,
+                  suffixIcon: suffixIcon,
                   border: InputBorder.none,
                   focusedBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
@@ -154,7 +158,6 @@ class TextInput extends StatelessWidget {
                   disabledBorder: InputBorder.none,
                   hintText: placeholder,
                   hintStyle: const TextStyle(fontSize: 13),
-                  contentPadding: const EdgeInsets.only(left: 20.0),
                 ),
                 onSaved: (value) => onSaved(value),
                 validator: (value) => validator(value),

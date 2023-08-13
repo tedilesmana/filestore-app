@@ -215,7 +215,7 @@ mixin _$Category {
   String? get name => throw _privateConstructorUsedError;
   DateTime? get created_at => throw _privateConstructorUsedError;
   DateTime? get updated_at => throw _privateConstructorUsedError;
-  dynamic? get deleted_at => throw _privateConstructorUsedError;
+  dynamic get deleted_at => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -234,7 +234,7 @@ abstract class $CategoryCopyWith<$Res> {
       String? name,
       DateTime? created_at,
       DateTime? updated_at,
-      dynamic? deleted_at});
+      dynamic deleted_at});
 }
 
 /// @nodoc
@@ -281,7 +281,7 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
       deleted_at: freezed == deleted_at
           ? _value.deleted_at
           : deleted_at // ignore: cast_nullable_to_non_nullable
-              as dynamic?,
+              as dynamic,
     ) as $Val);
   }
 }
@@ -299,7 +299,7 @@ abstract class _$$_CategoryCopyWith<$Res> implements $CategoryCopyWith<$Res> {
       String? name,
       DateTime? created_at,
       DateTime? updated_at,
-      dynamic? deleted_at});
+      dynamic deleted_at});
 }
 
 /// @nodoc
@@ -344,7 +344,7 @@ class __$$_CategoryCopyWithImpl<$Res>
       deleted_at: freezed == deleted_at
           ? _value.deleted_at
           : deleted_at // ignore: cast_nullable_to_non_nullable
-              as dynamic?,
+              as dynamic,
     ));
   }
 }
@@ -358,7 +358,7 @@ class _$_Category implements _Category {
       this.name,
       this.created_at,
       this.updated_at,
-      this.deleted_at});
+      required this.deleted_at});
 
   factory _$_Category.fromJson(Map<String, dynamic> json) =>
       _$$_CategoryFromJson(json);
@@ -374,7 +374,7 @@ class _$_Category implements _Category {
   @override
   final DateTime? updated_at;
   @override
-  final dynamic? deleted_at;
+  final dynamic deleted_at;
 
   @override
   String toString() {
@@ -423,7 +423,7 @@ abstract class _Category implements Category {
       final String? name,
       final DateTime? created_at,
       final DateTime? updated_at,
-      final dynamic? deleted_at}) = _$_Category;
+      required final dynamic deleted_at}) = _$_Category;
 
   factory _Category.fromJson(Map<String, dynamic> json) = _$_Category.fromJson;
 
@@ -438,7 +438,7 @@ abstract class _Category implements Category {
   @override
   DateTime? get updated_at;
   @override
-  dynamic? get deleted_at;
+  dynamic get deleted_at;
   @override
   @JsonKey(ignore: true)
   _$$_CategoryCopyWith<_$_Category> get copyWith =>

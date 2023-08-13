@@ -9,6 +9,8 @@ class ListImageController extends GetxController {
   final currentPage = 1.obs;
   final keyword = "".obs;
   final loadingListImage = true.obs;
+  final category_id = 0.obs;
+  final category_name = ''.obs;
   RxList<ImageStoreModel> listImage = <ImageStoreModel>[].obs;
 
   Future<void> getAllImage(int page) async {
@@ -18,9 +20,10 @@ class ListImageController extends GetxController {
       maskType: EasyLoadingMaskType.black,
     );
     try {
-      GlobalResponse response =
-          await ImageStoreRepository().getAllRepository(page, keyword.value);
-      Logger().w(response);
+      GlobalResponse response = await ImageStoreRepository().getAllRepository(
+          page,
+          keyword.value,
+          category_id.value == 0 ? "" : category_id.value.toString());
       if (response.success) {
         currentPage.value = 2;
         List listItem = response.data;
@@ -45,8 +48,10 @@ class ListImageController extends GetxController {
       maskType: EasyLoadingMaskType.black,
     );
     try {
-      GlobalResponse response =
-          await ImageStoreRepository().getAllRepository(page, keyword.value);
+      GlobalResponse response = await ImageStoreRepository().getAllRepository(
+          page,
+          keyword.value,
+          category_id.value == 0 ? "" : category_id.value.toString());
       if (response.success) {
         List listItem = response.data;
         listImage.value = [

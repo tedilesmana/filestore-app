@@ -23,9 +23,10 @@ mixin _$CategoryModel {
   int? get id => throw _privateConstructorUsedError;
   String? get code => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
+  String? get image_url => throw _privateConstructorUsedError;
   DateTime? get created_at => throw _privateConstructorUsedError;
   DateTime? get updated_at => throw _privateConstructorUsedError;
-  dynamic? get deleted_at => throw _privateConstructorUsedError;
+  dynamic get deleted_at => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,9 +44,10 @@ abstract class $CategoryModelCopyWith<$Res> {
       {int? id,
       String? code,
       String? name,
+      String? image_url,
       DateTime? created_at,
       DateTime? updated_at,
-      dynamic? deleted_at});
+      dynamic deleted_at});
 }
 
 /// @nodoc
@@ -64,6 +66,7 @@ class _$CategoryModelCopyWithImpl<$Res, $Val extends CategoryModel>
     Object? id = freezed,
     Object? code = freezed,
     Object? name = freezed,
+    Object? image_url = freezed,
     Object? created_at = freezed,
     Object? updated_at = freezed,
     Object? deleted_at = freezed,
@@ -81,6 +84,10 @@ class _$CategoryModelCopyWithImpl<$Res, $Val extends CategoryModel>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      image_url: freezed == image_url
+          ? _value.image_url
+          : image_url // ignore: cast_nullable_to_non_nullable
+              as String?,
       created_at: freezed == created_at
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
@@ -92,7 +99,7 @@ class _$CategoryModelCopyWithImpl<$Res, $Val extends CategoryModel>
       deleted_at: freezed == deleted_at
           ? _value.deleted_at
           : deleted_at // ignore: cast_nullable_to_non_nullable
-              as dynamic?,
+              as dynamic,
     ) as $Val);
   }
 }
@@ -109,9 +116,10 @@ abstract class _$$_CategoryModelCopyWith<$Res>
       {int? id,
       String? code,
       String? name,
+      String? image_url,
       DateTime? created_at,
       DateTime? updated_at,
-      dynamic? deleted_at});
+      dynamic deleted_at});
 }
 
 /// @nodoc
@@ -128,6 +136,7 @@ class __$$_CategoryModelCopyWithImpl<$Res>
     Object? id = freezed,
     Object? code = freezed,
     Object? name = freezed,
+    Object? image_url = freezed,
     Object? created_at = freezed,
     Object? updated_at = freezed,
     Object? deleted_at = freezed,
@@ -145,6 +154,10 @@ class __$$_CategoryModelCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      image_url: freezed == image_url
+          ? _value.image_url
+          : image_url // ignore: cast_nullable_to_non_nullable
+              as String?,
       created_at: freezed == created_at
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
@@ -156,7 +169,7 @@ class __$$_CategoryModelCopyWithImpl<$Res>
       deleted_at: freezed == deleted_at
           ? _value.deleted_at
           : deleted_at // ignore: cast_nullable_to_non_nullable
-              as dynamic?,
+              as dynamic,
     ));
   }
 }
@@ -168,9 +181,10 @@ class _$_CategoryModel implements _CategoryModel {
       {this.id,
       this.code,
       this.name,
+      this.image_url,
       this.created_at,
       this.updated_at,
-      this.deleted_at});
+      required this.deleted_at});
 
   factory _$_CategoryModel.fromJson(Map<String, dynamic> json) =>
       _$$_CategoryModelFromJson(json);
@@ -182,15 +196,17 @@ class _$_CategoryModel implements _CategoryModel {
   @override
   final String? name;
   @override
+  final String? image_url;
+  @override
   final DateTime? created_at;
   @override
   final DateTime? updated_at;
   @override
-  final dynamic? deleted_at;
+  final dynamic deleted_at;
 
   @override
   String toString() {
-    return 'CategoryModel(id: $id, code: $code, name: $name, created_at: $created_at, updated_at: $updated_at, deleted_at: $deleted_at)';
+    return 'CategoryModel(id: $id, code: $code, name: $name, image_url: $image_url, created_at: $created_at, updated_at: $updated_at, deleted_at: $deleted_at)';
   }
 
   @override
@@ -201,6 +217,8 @@ class _$_CategoryModel implements _CategoryModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.code, code) || other.code == code) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.image_url, image_url) ||
+                other.image_url == image_url) &&
             (identical(other.created_at, created_at) ||
                 other.created_at == created_at) &&
             (identical(other.updated_at, updated_at) ||
@@ -211,8 +229,8 @@ class _$_CategoryModel implements _CategoryModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, code, name, created_at,
-      updated_at, const DeepCollectionEquality().hash(deleted_at));
+  int get hashCode => Object.hash(runtimeType, id, code, name, image_url,
+      created_at, updated_at, const DeepCollectionEquality().hash(deleted_at));
 
   @JsonKey(ignore: true)
   @override
@@ -233,9 +251,10 @@ abstract class _CategoryModel implements CategoryModel {
       {final int? id,
       final String? code,
       final String? name,
+      final String? image_url,
       final DateTime? created_at,
       final DateTime? updated_at,
-      final dynamic? deleted_at}) = _$_CategoryModel;
+      required final dynamic deleted_at}) = _$_CategoryModel;
 
   factory _CategoryModel.fromJson(Map<String, dynamic> json) =
       _$_CategoryModel.fromJson;
@@ -247,11 +266,13 @@ abstract class _CategoryModel implements CategoryModel {
   @override
   String? get name;
   @override
+  String? get image_url;
+  @override
   DateTime? get created_at;
   @override
   DateTime? get updated_at;
   @override
-  dynamic? get deleted_at;
+  dynamic get deleted_at;
   @override
   @JsonKey(ignore: true)
   _$$_CategoryModelCopyWith<_$_CategoryModel> get copyWith =>

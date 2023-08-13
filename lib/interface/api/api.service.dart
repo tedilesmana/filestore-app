@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:dartz/dartz.dart';
 import 'package:filestore/config.dart';
+import 'package:filestore/core/data/storage/auth_user.dart';
 import 'package:filestore/core/helper/handle_exception.util.dart';
+import 'package:filestore/domain/models/user/user.model.dart';
 
 class ServiceApi {
   final Dio dio = Dio();
@@ -10,7 +12,12 @@ class ServiceApi {
 
   Future<Either<String, dynamic>> getService(
       {required url, required data}) async {
+    final authUserStorage = AuthUserStorage.getAuthUser();
+    final token = authUserStorage == null
+        ? ""
+        : UserModel.fromJson(authUserStorage).auth!.access_token;
     Response response;
+
     try {
       response = await dio.get(
         '$baseUrl/api$url',
@@ -19,6 +26,7 @@ class ServiceApi {
           headers: {
             'Accept': Headers.jsonContentType,
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer $token',
           },
         ),
       );
@@ -34,6 +42,10 @@ class ServiceApi {
 
   Future<Either<String, dynamic>> postService(
       {required url, required data}) async {
+    final authUserStorage = AuthUserStorage.getAuthUser();
+    final token = authUserStorage == null
+        ? ""
+        : UserModel.fromJson(authUserStorage).auth!.access_token;
     Response response;
     try {
       response = await dio.post(
@@ -43,6 +55,7 @@ class ServiceApi {
           headers: {
             'Accept': Headers.jsonContentType,
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer $token',
           },
         ),
       );
@@ -58,6 +71,10 @@ class ServiceApi {
 
   Future<Either<String, dynamic>> updateService(
       {required url, required data}) async {
+    final authUserStorage = AuthUserStorage.getAuthUser();
+    final token = authUserStorage == null
+        ? ""
+        : UserModel.fromJson(authUserStorage).auth!.access_token;
     Response response;
     try {
       response = await dio.put(
@@ -67,6 +84,7 @@ class ServiceApi {
           headers: {
             'Accept': Headers.jsonContentType,
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer $token',
           },
         ),
       );
@@ -82,6 +100,10 @@ class ServiceApi {
 
   Future<Either<String, dynamic>> deleteService(
       {required url, required data}) async {
+    final authUserStorage = AuthUserStorage.getAuthUser();
+    final token = authUserStorage == null
+        ? ""
+        : UserModel.fromJson(authUserStorage).auth!.access_token;
     Response response;
     try {
       response = await dio.delete(
@@ -91,6 +113,7 @@ class ServiceApi {
           headers: {
             'Accept': Headers.jsonContentType,
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer $token',
           },
         ),
       );

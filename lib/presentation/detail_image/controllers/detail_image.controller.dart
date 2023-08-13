@@ -1,6 +1,8 @@
+import 'package:filestore/core/data/storage/auth_user.dart';
 import 'package:filestore/core/widgets/snackbar_util.dart';
 import 'package:filestore/domain/models/comment/comment.model.dart';
 import 'package:filestore/domain/models/image_store/image_store.model.dart';
+import 'package:filestore/domain/models/user/user.model.dart';
 import 'package:filestore/domain/repository/comment/comment.repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -17,6 +19,8 @@ class DetailImageController extends GetxController {
   final loadingPostImage = false.obs;
 
   Future<void> postComment() async {
+    final authUserStorage = AuthUserStorage.getAuthUser();
+    final auth = UserModel.fromJson(authUserStorage);
     final isValid = formPostCommentKey.currentState!.validate();
     await EasyLoading.show(
       status: 'Loading...',
@@ -33,6 +37,7 @@ class DetailImageController extends GetxController {
 
         dio.FormData formData = dio.FormData.fromMap({
           'image_store_id': detailImage.id,
+          'user_id': auth.user!.id,
           'comment': comment,
         });
 

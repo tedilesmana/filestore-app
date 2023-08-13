@@ -4,10 +4,10 @@ import 'package:get/get.dart';
 class ImageStoreService extends GetxService {
   ServiceApi serviceApi = ServiceApi();
 
-  Future<dynamic> getAll(int page, String search) async {
+  Future<dynamic> getAll(int page, String search, String category_id) async {
     final response = await serviceApi.getService(
         url: '/image-store',
-        data: <String, dynamic>{"limit": 10, "page": page, "search": search});
+        data: <String, dynamic>{"limit": 10, "page": page, "search": search, "filter": "category_id=$category_id"});
     return response;
   }
 

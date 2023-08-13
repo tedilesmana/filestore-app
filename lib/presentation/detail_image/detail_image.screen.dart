@@ -96,7 +96,7 @@ class DetailImageScreen extends GetView<DetailImageController> {
                                     placeholder: (context, url) =>
                                         Loading.type2(),
                                     imageUrl:
-                                        "$baseUrl/${controller.detailImage.image_url}",
+                                        "$baseUrl${controller.detailImage.image_url}",
                                     fit: BoxFit.fill,
                                   ),
                                 ),
@@ -222,8 +222,15 @@ class DetailImageScreen extends GetView<DetailImageController> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text(utilHelper.convertDateTimeFormat(
-                                            item.created_at.toString())),
+                                        Row(
+                                          children: [
+                                            item.user != null ? Text("${item.user!.name!.capitalizeFirst} | ") : Container(),
+                                            Text(utilHelper
+                                                .convertDateTimeFormat(item
+                                                    .created_at
+                                                    .toString())),
+                                          ],
+                                        ),
                                         Container(
                                           width: Get.width - 30,
                                           margin: const EdgeInsets.only(

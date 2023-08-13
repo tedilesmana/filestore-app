@@ -1,6 +1,9 @@
+import 'package:filestore/core/config/color.dart';
 import 'package:filestore/core/helper/helper.util.dart';
 import 'package:filestore/core/widgets/rounded_button.dart';
 import 'package:filestore/core/widgets/text_input.dart';
+import 'package:filestore/infrastructure/navigation/routes.dart';
+import 'package:filestore/theme.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -16,65 +19,141 @@ class LoginScreen extends GetView<LoginController> {
 
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          children: [
-            Form(
-              key: controller.formPostCommentKey,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: TextInput(
-                      key: const Key("comment"),
-                      label: "Komentar",
-                      isLabel: false,
-                      placeholder: "Masukkan Komentar Gambar",
-                      controller: controller.commentController,
-                      onSaved: (value) {
-                        controller.comment = value!;
-                      },
-                      keyboardType: TextInputType.multiline,
-                      validator: (value) {
-                        return utilHelper.validateRequire(value!, "Komentar ");
-                      },
-                      obscureText: false,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Form(
+                key: controller.formPostLoginKey,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Container(
+                      color: filestore,
+                      padding: const EdgeInsets.all(15),
+                      child: const Align(
+                        alignment: Alignment(0, -0.5),
+                        child: CircleAvatar(
+                          radius: 70,
+                          backgroundImage:
+                              AssetImage('assets/images/icons/logo.png'),
+                        ),
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: TextInput(
-                      key: const Key("comment"),
-                      label: "Komentar",
-                      isLabel: false,
-                      placeholder: "Masukkan Komentar Gambar",
-                      controller: controller.commentController,
-                      onSaved: (value) {
-                        controller.comment = value!;
-                      },
-                      keyboardType: TextInputType.multiline,
-                      validator: (value) {
-                        return utilHelper.validateRequire(value!, "Komentar ");
-                      },
-                      obscureText: false,
+                    const SizedBox(
+                      height: 15,
                     ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(
-                        vertical: 20, horizontal: 12),
-                    child: RoundedButton(
-                      text: "Komentar",
-                      onPress: () => controller.postComment(),
-                      color: Theme.of(context).primaryColor,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Sign In",
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: textBold.copyWith(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          TextInput(
+                            key: const Key("login-email"),
+                            label: "Email",
+                            isLabel: false,
+                            placeholder: "Masukkan email",
+                            controller: controller.emailController,
+                            onSaved: (value) {
+                              controller.email = value!;
+                            },
+                            keyboardType: TextInputType.emailAddress,
+                            validator: (value) {
+                              return utilHelper.validateRequire(
+                                  value!, "Email ");
+                            },
+                            obscureText: false,
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          Obx(
+                            () => TextInput(
+                              key: const Key("login-password"),
+                              label: "Password",
+                              isLabel: false,
+                              placeholder: "Masukkan Password",
+                              controller: controller.passwordController,
+                              onSaved: (value) {
+                                controller.password = value!;
+                              },
+                              keyboardType: TextInputType.visiblePassword,
+                              validator: (value) {
+                                return utilHelper.validateRequire(
+                                    value!, "Password ");
+                              },
+                              obscureText: controller.passwordVisible.value,
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  controller.passwordVisible.value
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
+                                  color: Theme.of(context).primaryColorDark,
+                                ),
+                                onPressed: () {
+                                  controller.passwordVisible.value =
+                                      !controller.passwordVisible.value;
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  )
-                ],
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 15, horizontal: 12),
+                      child: RoundedButton(
+                        text: "Sign In",
+                        onPress: () {
+                          controller.login();
+                        },
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                    Center(
+                      child: Text(
+                        "If Not Have Account",
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: textBold.copyWith(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 15, horizontal: 12),
+                      child: RoundedButton(
+                        text: "Register Here",
+                        onPress: () {
+                          Get.offNamed(Routes.REGISTER);
+                        },
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

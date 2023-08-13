@@ -3,7 +3,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:filestore/core/config/size_config.dart';
 import 'package:filestore/core/controller/xcontroller.dart';
-import 'package:filestore/core/models/user_model.dart';
 import 'package:filestore/domain/models/post_image/post_image.model.dart';
 import 'package:filestore/presentation/post_image/controllers/post_image.controller.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +33,6 @@ class UploadImage extends StatefulWidget {
 class UploadImageState extends State<UploadImage> {
   PostImageController controller = Get.put(PostImageController());
   final XController x = XController.to;
-  UserModel? thisUser;
   String? url;
 
   @override

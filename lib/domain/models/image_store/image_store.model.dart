@@ -1,6 +1,7 @@
 
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:filestore/domain/models/user/user.model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'dart:convert';
 
@@ -17,10 +18,12 @@ String imageStoreModelToJson(ImageStoreModel data) =>
 class ImageStoreModel with _$ImageStoreModel {
   const factory ImageStoreModel({
     String? name,
-    String? category,
+    int? category_id,
+    int? user_id,
     String? description,
     String? extention,
     int? size,
+    User? user,
     String? directory,
     String? image_url,
     String? filename,
