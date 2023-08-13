@@ -6,6 +6,7 @@ import 'package:filestore/core/widgets/photo_oval.dart';
 import 'package:filestore/core/widgets/shadow_container.dart';
 import 'package:filestore/core/widgets/toggle_lang.dart';
 import 'package:filestore/core/widgets/toggle_theme.dart';
+import 'package:filestore/presentation/settings/sections/chart.section.dart';
 import 'package:filestore/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
@@ -256,6 +257,7 @@ class SettingsScreen extends GetView<SettingsController> {
           ),
         ),
         spaceHeight5,
+        ChartSection(),
       ],
     );
   }

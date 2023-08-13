@@ -5,21 +5,25 @@ class ImageStoreService extends GetxService {
   ServiceApi serviceApi = ServiceApi();
 
   Future<dynamic> getAll(int page, String search, String category_id) async {
-    final response = await serviceApi.getService(
-        url: '/image-store',
-        data: <String, dynamic>{"limit": 10, "page": page, "search": search, "filter": "category_id=$category_id"});
+    final response = await serviceApi
+        .getService(url: '/image-store', data: <String, dynamic>{
+      "limit": 10,
+      "page": page,
+      "search": search,
+      "filter": "category_id=$category_id"
+    });
     return response;
   }
 
   Future<dynamic> getId(id) async {
-    final response =
-        await serviceApi.getService(url: '/image-store/$id', data: {});
+    final response = await serviceApi
+        .getService(url: '/image-store/$id', data: <String, dynamic>{});
     return response;
   }
 
   Future<dynamic> findByKeyword(keyword) async {
-    final response = await serviceApi
-        .getService(url: '/image-store?search=$keyword', data: {});
+    final response = await serviceApi.getService(
+        url: '/image-store?search=$keyword', data: <String, dynamic>{});
     return response;
   }
 
@@ -36,8 +40,8 @@ class ImageStoreService extends GetxService {
   }
 
   Future<dynamic> getTotalByCategory() async {
-    final response = await serviceApi
-        .getService(url: '/image-store/total-bycategory', data: {});
+    final response = await serviceApi.getService(
+        url: '/image-store/total-bycategory', data: <String, dynamic>{});
     return response;
   }
 }

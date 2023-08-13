@@ -70,7 +70,6 @@ class HomeScreen extends GetView<HomeController> {
       children: [
         spaceHeight10,
         rowTopHeader(x, langName),
-        spaceHeight10,
         searchTopHeader(),
         spaceHeight20,
         ListImageScreen(),
@@ -139,7 +138,7 @@ class HomeScreen extends GetView<HomeController> {
     final auth = UserModel.fromJson(authUserStorage);
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
       child: Container(
         color: filestore,
         child: Row(

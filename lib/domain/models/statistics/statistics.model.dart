@@ -28,6 +28,7 @@ class Category with _$Category {
     int? id,
     String? code,
     String? name,
+    String? image_url,
     DateTime? created_at,
     DateTime? updated_at,
     required dynamic deleted_at,

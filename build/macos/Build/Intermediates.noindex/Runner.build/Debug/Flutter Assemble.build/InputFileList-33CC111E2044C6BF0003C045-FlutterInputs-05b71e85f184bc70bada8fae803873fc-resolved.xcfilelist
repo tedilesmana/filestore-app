@@ -606,8 +606,15 @@
 /Users/admin/.pub-cache/hosted/pub.dev/get-4.6.5/lib/get_utils/src/queue/get_queue.dart
 /Users/admin/.pub-cache/hosted/pub.dev/get-4.6.5/lib/instance_manager.dart
 /Users/admin/.pub-cache/hosted/pub.dev/get-4.6.5/lib/route_manager.dart
+/Users/admin/.pub-cache/hosted/pub.dev/get-4.6.5/lib/state_manager.dart
 /Users/admin/.pub-cache/hosted/pub.dev/get-4.6.5/lib/utils.dart
 /Users/admin/.pub-cache/hosted/pub.dev/get_cli-1.8.1/LICENSE
+/Users/admin/.pub-cache/hosted/pub.dev/get_storage-2.1.1/LICENSE
+/Users/admin/.pub-cache/hosted/pub.dev/get_storage-2.1.1/lib/get_storage.dart
+/Users/admin/.pub-cache/hosted/pub.dev/get_storage-2.1.1/lib/src/read_write_value.dart
+/Users/admin/.pub-cache/hosted/pub.dev/get_storage-2.1.1/lib/src/storage/io.dart
+/Users/admin/.pub-cache/hosted/pub.dev/get_storage-2.1.1/lib/src/storage_impl.dart
+/Users/admin/.pub-cache/hosted/pub.dev/get_storage-2.1.1/lib/src/value.dart
 /Users/admin/.pub-cache/hosted/pub.dev/glob-2.1.2/LICENSE
 /Users/admin/.pub-cache/hosted/pub.dev/google_fonts-4.0.4/LICENSE
 /Users/admin/.pub-cache/hosted/pub.dev/google_fonts-4.0.4/lib/google_fonts.dart
@@ -2648,7 +2655,7 @@
 /Users/admin/.pub-cache/hosted/pub.dev/xml-6.3.0/lib/xml.dart
 /Users/admin/.pub-cache/hosted/pub.dev/xml-6.3.0/lib/xml_events.dart
 /Users/admin/.pub-cache/hosted/pub.dev/yaml-3.1.2/LICENSE
-/Users/admin/Desktop/filestore/DOES_NOT_EXIST_RERUN_FOR_WILDCARD292261777
+/Users/admin/Desktop/filestore/DOES_NOT_EXIST_RERUN_FOR_WILDCARD390511905
 /Users/admin/Desktop/filestore/assets/.DS_Store
 /Users/admin/Desktop/filestore/assets/Group 2.png
 /Users/admin/Desktop/filestore/assets/back01.png
@@ -2692,6 +2699,8 @@
 /Users/admin/Desktop/filestore/lib/core/config/color.dart
 /Users/admin/Desktop/filestore/lib/core/config/size_config.dart
 /Users/admin/Desktop/filestore/lib/core/controller/xcontroller.dart
+/Users/admin/Desktop/filestore/lib/core/data/storage.constants.dart
+/Users/admin/Desktop/filestore/lib/core/data/storage/auth_user.dart
 /Users/admin/Desktop/filestore/lib/core/exceptions/cancel.exception.dart
 /Users/admin/Desktop/filestore/lib/core/exceptions/connect_time_out.exception.dart
 /Users/admin/Desktop/filestore/lib/core/exceptions/default.exception.dart
@@ -2715,6 +2724,9 @@
 /Users/admin/Desktop/filestore/lib/core/widgets/toggle_theme.dart
 /Users/admin/Desktop/filestore/lib/core/widgets/top_title.dart
 /Users/admin/Desktop/filestore/lib/core/widgets/upload_image.dart
+/Users/admin/Desktop/filestore/lib/domain/models/category/category.model.dart
+/Users/admin/Desktop/filestore/lib/domain/models/category/category.model.freezed.dart
+/Users/admin/Desktop/filestore/lib/domain/models/category/category.model.g.dart
 /Users/admin/Desktop/filestore/lib/domain/models/comment/comment.model.dart
 /Users/admin/Desktop/filestore/lib/domain/models/comment/comment.model.freezed.dart
 /Users/admin/Desktop/filestore/lib/domain/models/comment/comment.model.g.dart
@@ -2730,7 +2742,11 @@
 /Users/admin/Desktop/filestore/lib/domain/models/post_image/post_image.model.dart
 /Users/admin/Desktop/filestore/lib/domain/models/post_image/post_image.model.freezed.dart
 /Users/admin/Desktop/filestore/lib/domain/models/post_image/post_image.model.g.dart
+/Users/admin/Desktop/filestore/lib/domain/models/user/user.model.dart
+/Users/admin/Desktop/filestore/lib/domain/models/user/user.model.freezed.dart
+/Users/admin/Desktop/filestore/lib/domain/models/user/user.model.g.dart
 /Users/admin/Desktop/filestore/lib/domain/repository/auth/auth.repository.dart
+/Users/admin/Desktop/filestore/lib/domain/repository/category/category.repository.dart
 /Users/admin/Desktop/filestore/lib/domain/repository/comment/comment.repository.dart
 /Users/admin/Desktop/filestore/lib/domain/repository/file_handler/file_handler.repository.dart
 /Users/admin/Desktop/filestore/lib/domain/repository/filter_repository.dart
@@ -2749,6 +2765,7 @@
 /Users/admin/Desktop/filestore/lib/infrastructure/navigation/routes.dart
 /Users/admin/Desktop/filestore/lib/interface/api/api.service.dart
 /Users/admin/Desktop/filestore/lib/interface/api/auth/auth.service.dart
+/Users/admin/Desktop/filestore/lib/interface/api/category/category.service.dart
 /Users/admin/Desktop/filestore/lib/interface/api/comment/comment.service.dart
 /Users/admin/Desktop/filestore/lib/interface/api/file_handler/file_handler.service.dart
 /Users/admin/Desktop/filestore/lib/interface/api/image_store/image_store.service.dart
@@ -2764,6 +2781,7 @@
 /Users/admin/Desktop/filestore/lib/presentation/login/login.screen.dart
 /Users/admin/Desktop/filestore/lib/presentation/post_image/controllers/post_image.controller.dart
 /Users/admin/Desktop/filestore/lib/presentation/post_image/post_image.screen.dart
+/Users/admin/Desktop/filestore/lib/presentation/post_image/sections/category.section.dart
 /Users/admin/Desktop/filestore/lib/presentation/register/controllers/register.controller.dart
 /Users/admin/Desktop/filestore/lib/presentation/register/register.screen.dart
 /Users/admin/Desktop/filestore/lib/presentation/screens.dart

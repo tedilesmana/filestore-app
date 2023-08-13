@@ -213,6 +213,7 @@ mixin _$Category {
   int? get id => throw _privateConstructorUsedError;
   String? get code => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
+  String? get image_url => throw _privateConstructorUsedError;
   DateTime? get created_at => throw _privateConstructorUsedError;
   DateTime? get updated_at => throw _privateConstructorUsedError;
   dynamic get deleted_at => throw _privateConstructorUsedError;
@@ -232,6 +233,7 @@ abstract class $CategoryCopyWith<$Res> {
       {int? id,
       String? code,
       String? name,
+      String? image_url,
       DateTime? created_at,
       DateTime? updated_at,
       dynamic deleted_at});
@@ -253,6 +255,7 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
     Object? id = freezed,
     Object? code = freezed,
     Object? name = freezed,
+    Object? image_url = freezed,
     Object? created_at = freezed,
     Object? updated_at = freezed,
     Object? deleted_at = freezed,
@@ -269,6 +272,10 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      image_url: freezed == image_url
+          ? _value.image_url
+          : image_url // ignore: cast_nullable_to_non_nullable
               as String?,
       created_at: freezed == created_at
           ? _value.created_at
@@ -297,6 +304,7 @@ abstract class _$$_CategoryCopyWith<$Res> implements $CategoryCopyWith<$Res> {
       {int? id,
       String? code,
       String? name,
+      String? image_url,
       DateTime? created_at,
       DateTime? updated_at,
       dynamic deleted_at});
@@ -316,6 +324,7 @@ class __$$_CategoryCopyWithImpl<$Res>
     Object? id = freezed,
     Object? code = freezed,
     Object? name = freezed,
+    Object? image_url = freezed,
     Object? created_at = freezed,
     Object? updated_at = freezed,
     Object? deleted_at = freezed,
@@ -332,6 +341,10 @@ class __$$_CategoryCopyWithImpl<$Res>
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      image_url: freezed == image_url
+          ? _value.image_url
+          : image_url // ignore: cast_nullable_to_non_nullable
               as String?,
       created_at: freezed == created_at
           ? _value.created_at
@@ -356,6 +369,7 @@ class _$_Category implements _Category {
       {this.id,
       this.code,
       this.name,
+      this.image_url,
       this.created_at,
       this.updated_at,
       required this.deleted_at});
@@ -370,6 +384,8 @@ class _$_Category implements _Category {
   @override
   final String? name;
   @override
+  final String? image_url;
+  @override
   final DateTime? created_at;
   @override
   final DateTime? updated_at;
@@ -378,7 +394,7 @@ class _$_Category implements _Category {
 
   @override
   String toString() {
-    return 'Category(id: $id, code: $code, name: $name, created_at: $created_at, updated_at: $updated_at, deleted_at: $deleted_at)';
+    return 'Category(id: $id, code: $code, name: $name, image_url: $image_url, created_at: $created_at, updated_at: $updated_at, deleted_at: $deleted_at)';
   }
 
   @override
@@ -389,6 +405,8 @@ class _$_Category implements _Category {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.code, code) || other.code == code) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.image_url, image_url) ||
+                other.image_url == image_url) &&
             (identical(other.created_at, created_at) ||
                 other.created_at == created_at) &&
             (identical(other.updated_at, updated_at) ||
@@ -399,8 +417,8 @@ class _$_Category implements _Category {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, code, name, created_at,
-      updated_at, const DeepCollectionEquality().hash(deleted_at));
+  int get hashCode => Object.hash(runtimeType, id, code, name, image_url,
+      created_at, updated_at, const DeepCollectionEquality().hash(deleted_at));
 
   @JsonKey(ignore: true)
   @override
@@ -421,6 +439,7 @@ abstract class _Category implements Category {
       {final int? id,
       final String? code,
       final String? name,
+      final String? image_url,
       final DateTime? created_at,
       final DateTime? updated_at,
       required final dynamic deleted_at}) = _$_Category;
@@ -433,6 +452,8 @@ abstract class _Category implements Category {
   String? get code;
   @override
   String? get name;
+  @override
+  String? get image_url;
   @override
   DateTime? get created_at;
   @override

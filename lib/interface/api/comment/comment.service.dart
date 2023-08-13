@@ -16,13 +16,13 @@ class CommentService extends GetxService {
   }
 
   Future<dynamic> getId(id) async {
-    final response = await serviceApi.getService(url: '/comment/$id', data: {});
+    final response = await serviceApi.getService(url: '/comment/$id', data: <String, dynamic>{});
     return response;
   }
 
   Future<dynamic> findByKeyword(keyword) async {
     final response =
-        await serviceApi.getService(url: '/comment?search=$keyword', data: {});
+        await serviceApi.getService(url: '/comment?search=$keyword', data: <String, dynamic>{});
     return response;
   }
 

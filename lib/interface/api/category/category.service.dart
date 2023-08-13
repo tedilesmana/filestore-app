@@ -13,13 +13,13 @@ class CategoryService extends GetxService {
 
   Future<dynamic> getId(id) async {
     final response =
-        await serviceApi.getService(url: '/category/$id', data: {});
+        await serviceApi.getService(url: '/category/$id', data: <String, dynamic>{});
     return response;
   }
 
   Future<dynamic> findByKeyword(keyword) async {
     final response =
-        await serviceApi.getService(url: '/category?search=$keyword', data: {});
+        await serviceApi.getService(url: '/category?search=$keyword', data: <String, dynamic>{});
     return response;
   }
 
