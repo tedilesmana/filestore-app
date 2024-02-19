@@ -1,7 +1,7 @@
-#Sat Aug 12 21:33:26 WIB 2023
-base.0=/Users/admin/Desktop/filestore/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
-base.1=/Users/admin/Desktop/filestore/build/app/intermediates/dex/debug/mergeDexDebug/classes2.dex
-base.2=/Users/admin/Desktop/filestore/build/app/intermediates/dex/debug/mergeDexDebug/classes3.dex
+#Fri Feb 16 07:48:26 WIB 2024
+base.0=/Users/admin/Desktop/FIX-TEMPLATE/flutter-template/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+base.1=/Users/admin/Desktop/FIX-TEMPLATE/flutter-template/build/app/intermediates/dex/debug/mergeDexDebug/classes2.dex
+base.2=/Users/admin/Desktop/FIX-TEMPLATE/flutter-template/build/app/intermediates/dex/debug/mergeDexDebug/classes3.dex
 path.0=classes.dex
 path.1=classes2.dex
 path.2=classes3.dex

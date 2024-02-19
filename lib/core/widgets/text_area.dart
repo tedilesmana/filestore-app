@@ -109,7 +109,7 @@ class TextArea extends StatelessWidget {
         Stack(
           children: [
             Container(
-              height: 127,
+              height: 95,
               margin: const EdgeInsets.only(top: 10),
               padding: const EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
@@ -144,7 +144,7 @@ class TextArea extends StatelessWidget {
                 ),
                 onSaved: (value) => onSaved(value),
                 validator: (value) => validator(value),
-                minLines: 6,
+                minLines: 5,
                 maxLines: 20,
               ),
             ),

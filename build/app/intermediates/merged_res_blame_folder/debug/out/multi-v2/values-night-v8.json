@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/admin/Desktop/filestore/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/Users/admin/Desktop/FIX-TEMPLATE/flutter-template/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,17",
                         "startColumns": "4,4",

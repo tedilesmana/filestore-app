@@ -18,3 +18,4 @@ samples, guidance on mobile development, and a full API reference.
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 flutter pub run flutter_native_splash:create
 flutter pub run build_runner build --delete-conflicting-outputs
+flutter build apk --split-per-abi
